@@ -14,7 +14,7 @@ Lets crete your ready app server with following prerequisites app
 13. unzip
 14. net-tools
 
-We can install them manually as per requirement or use following script to install them
+We can install them manually as per requirement or use following script to install them. For more powerful script operations you can prepare python program for same functionality.
 
 [For script link click here](install.sh)
 

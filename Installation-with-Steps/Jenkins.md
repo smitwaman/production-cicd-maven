@@ -8,7 +8,7 @@ for installation you can visit Jenkins official website on following link-
 
 
 
-🎯[Script for Jenkins installation on Installation-Scripts/Jenkins.sh ](Installation-Scripts/Jenkins.sh)
+🎯 [Script for Jenkins installation on Installation-Scripts/Jenkins.sh ](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Jenkins.sh)
 
 We can install with following script and configure Docker Socket,later.
 

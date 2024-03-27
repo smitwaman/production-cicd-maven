@@ -3,6 +3,7 @@ let's outline the steps to set up a CI/CD pipeline using the mentioned tools:
 ### 1. Setting up Git for SCM:
 - Create a Git repository to host your Java source code.
 - Clone the repository to your local machine.
+
   ```
   git clone https://github.com/smitwaman/production-cicd-maven.git
 

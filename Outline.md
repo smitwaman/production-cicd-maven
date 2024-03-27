@@ -18,7 +18,7 @@ Before start with our configuration installation system tools for making tools r
   ```
 
 ### 2. Jenkins Integration:
-- Install and configure Jenkins on a server.
+- [Install and configure Jenkins on a server.](Installation-with-Steps/Jenkins.md)
 - Set up a Jenkins job to pull the source code from the Git repository.
 - Configure the job to trigger builds automatically or manually.
 

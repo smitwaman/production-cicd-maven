@@ -10,3 +10,6 @@ Lets crete your ready app server with following prerequisites app
 9. terraform
 10. boto3
 11. pip3
+12. tar
+13. unzip
+14. net-tools

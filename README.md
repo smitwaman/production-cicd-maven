@@ -1,6 +1,6 @@
 ## production-cicd-maven
 
-let's design one cicd project with following tools with all script files for application installation and configuration for java source code .
+let's design one cicd project with following tools with all script files for application installation and configuration for java source code with following steps.
 
 1. Git for SCM and webhook to jenkins for automation trigger
 2. Jenkins for integration
@@ -14,4 +14,4 @@ let's design one cicd project with following tools with all script files for app
 10. Push image to registry
 11. Deploy cluster using docker swarm
 12. monitoring docker swarm using Prometheus and Grafana
-13. Slack for alern
+13. Slack for message alert

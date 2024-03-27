@@ -170,6 +170,9 @@ To install Jenkins using Helm charts, follow these steps:
 
 That's it! You've successfully installed Jenkins on your Kubernetes cluster using Helm charts.
 
+
+
+
 👉 Installation of Jenkins using yaml files.
 We can make jenkins cluster using 
 
@@ -177,55 +180,6 @@ We can make jenkins cluster using
  
 
 [✍️jenkins-service.yaml](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Jenkins-Cluster/jenkins-service.yaml)
-
-### Jenkins Installation on EC2:
-
-1. **Launch an EC2 Instance:**
-   - Launch an EC2 instance with your preferred operating system (e.g., Ubuntu, Amazon Linux).
-   - Make sure to open port `8080` for Jenkins access and any other ports you might need for additional services.
-
-2. **SSH into the EC2 Instance:**
-   - Use SSH to connect to your EC2 instance:
-     ```bash
-     ssh -i your-key.pem ec2-user@your-ec2-instance-public-ip
-     ```
-
-3. **Install Docker:**
-   - Follow the Docker installation instructions for your specific operating system. For example, on Ubuntu:
-     ```bash
-     sudo apt update
-     sudo apt install -y docker.io
-     sudo systemctl start docker
-     sudo systemctl enable docker
-     ```
-
-4. **Run Jenkins Docker Container:**
-   - Pull the Jenkins image from Docker Hub and run it as a container:
-     ```bash
-     sudo docker run -d -p 8080:8080 -p 50000:50000 jenkins/jenkins
-     ```
-
-5. **Access Jenkins:**
-   - Open a web browser and navigate to `http://your-ec2-instance-public-ip:8080` to access Jenkins.
-   - Follow the on-screen instructions to complete the Jenkins setup.
-
-### Jenkins Installation with Docker:
-
-1. **Pull Jenkins Docker Image:**
-   - Pull the Jenkins image from Docker Hub:
-     ```bash
-     docker pull jenkins/jenkins
-     ```
-
-2. **Run Jenkins Docker Container:**
-   - Run Jenkins as a Docker container:
-     ```bash
-     docker run -d -p 8080:8080 -p 50000:50000 jenkins/jenkins
-     ```
-
-3. **Access Jenkins:**
-   - Open a web browser and navigate to `http://localhost:8080` to access Jenkins.
-   - Follow the on-screen instructions to complete the Jenkins setup.
 
 ### Jenkins Installation on Kubernetes using Deployment and Service YAML files:
 

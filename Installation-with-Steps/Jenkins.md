@@ -173,8 +173,10 @@ That's it! You've successfully installed Jenkins on your Kubernetes cluster usin
 👉 Installation of Jenkins using yaml files.
 We can make jenkins cluster using 
 
-- [jenkins-deployment.yaml ](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Jenkins-Cluster/jenkins-deployment.yaml)
- -[jenkins-service.yaml](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Jenkins-Cluster/jenkins-service.yaml
+[✍️jenkins-deployment.yaml ](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Jenkins-Cluster/jenkins-deployment.yaml)
+ 
+
+[✍️jenkins-service.yaml](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Jenkins-Cluster/jenkins-service.yaml)
 
 ### Jenkins Installation on EC2:
 

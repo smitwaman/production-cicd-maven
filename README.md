@@ -15,4 +15,6 @@ let's design one cicd project with following tools with all script files for app
 11. Deploy cluster using docker swarm
 12. monitoring docker swarm using Prometheus and Grafana
 13. Slack for message alert
-[Link to Script File](Outline.md)
+
+
+👉 [Link to Outline File for steps](Outline.md)

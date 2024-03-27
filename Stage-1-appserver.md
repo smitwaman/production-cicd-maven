@@ -47,5 +47,5 @@ We can install them manually as per requirement or use following script to insta
    ```bash
    ./install.sh
    ```
-Finally our appserver ready with prerequisites tools
-Now next Create GitHub repository and clone it to your appserver
+- Finally our appserver ready with prerequisites tools
+Now next stage is to  create GitHub repository and clone it to your appserver

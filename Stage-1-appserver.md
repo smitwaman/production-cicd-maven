@@ -26,7 +26,7 @@ We can install them manually as per requirement or use following script to insta
    nano install.sh
    ```
 
-   This will open the `nano` text editor. Copy and paste the script provided in the previous response into this file.
+   This will open the `nano` text editor. Copy and paste the script provided into this file.
 
    To save the file in `nano`, press `Ctrl` + `O`, then press `Enter` to confirm. To exit `nano`, press `Ctrl` + `X`.
 

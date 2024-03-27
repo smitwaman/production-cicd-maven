@@ -1,5 +1,11 @@
 let's outline the steps to set up a CI/CD pipeline using the mentioned tools:
 
+
+Before start with our configuration installation system tools for making tools ready appserver 
+
+## 👉 [💻🛠️](Stage-1-appserver.md)
+
+
 ### 1. Setting up Git for SCM:
 - Create a Git repository to host your Java source code.
 - Clone the repository to your local machine.

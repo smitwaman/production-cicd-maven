@@ -116,3 +116,173 @@ docker run \
   --storage-driver overlay2
 ```
 
+
+👉 Installation of Jenkins cluster to kubernetes using Helm Chart
+
+To install Jenkins using Helm charts, follow these steps:
+
+1. **Install Helm:**
+   If you haven't already installed Helm, you need to do so. You can follow the official Helm documentation for installation instructions: https://helm.sh/docs/intro/install/
+
+2. **Add Jenkins Helm Repository:**
+   Add the official Jenkins Helm repository to Helm:
+
+   ```bash
+   helm repo add jenkins https://charts.jenkins.io
+   helm repo update
+   ```
+
+3. **Install Jenkins:**
+   Install Jenkins using the Helm chart:
+
+   ```bash
+   helm install jenkins jenkins/jenkins
+   ```
+
+   This command will install Jenkins using the default configuration provided by the Helm chart.
+
+4. **Access Jenkins:**
+   After the installation is complete, Jenkins will be accessible through a NodePort service. To find out the port:
+
+   ```bash
+   kubectl get svc jenkins
+   ```
+
+   Note down the port mapped to `http` or `https`. You can access Jenkins using the IP address of any node in your Kubernetes cluster and the mapped port.
+
+5. **Unlock Jenkins:**
+   To unlock Jenkins, you need to retrieve the initial administrator password. You can do this by running:
+
+   ```bash
+   kubectl exec -it $(kubectl get pods -l "app.kubernetes.io/component=jenkins-master" -o jsonpath="{.items[0].metadata.name}") -- /bin/cat /var/jenkins_home/secrets/initialAdminPassword
+   ```
+
+   Copy the printed password and use it to unlock Jenkins by following the on-screen instructions.
+
+6. **Configure Jenkins:**
+   Follow the Jenkins setup wizard to complete the initial configuration. This includes installing recommended plugins, creating an admin user, and configuring the Jenkins URL.
+
+7. **Access Jenkins Dashboard:**
+   Once the setup is complete, you can access the Jenkins dashboard using the IP address of any node in your Kubernetes cluster and the port you noted down earlier.
+
+8. **Optional: Customize Jenkins Installation:**
+   You can customize the Jenkins installation by providing configuration values via a `values.yaml` file or directly through the Helm command using `--set` flags. Refer to the Jenkins Helm chart documentation for available configuration options: https://github.com/jenkinsci/helm-charts/tree/main/charts/jenkins
+
+That's it! You've successfully installed Jenkins on your Kubernetes cluster using Helm charts.
+
+👉 Installation of Jenkins using yaml files.
+We can make jenkins cluster using 
+- svc.yaml 
+- Deployment.yaml 
+- svc-jenkins.yaml
+
+### Jenkins Installation on EC2:
+
+1. **Launch an EC2 Instance:**
+   - Launch an EC2 instance with your preferred operating system (e.g., Ubuntu, Amazon Linux).
+   - Make sure to open port `8080` for Jenkins access and any other ports you might need for additional services.
+
+2. **SSH into the EC2 Instance:**
+   - Use SSH to connect to your EC2 instance:
+     ```bash
+     ssh -i your-key.pem ec2-user@your-ec2-instance-public-ip
+     ```
+
+3. **Install Docker:**
+   - Follow the Docker installation instructions for your specific operating system. For example, on Ubuntu:
+     ```bash
+     sudo apt update
+     sudo apt install -y docker.io
+     sudo systemctl start docker
+     sudo systemctl enable docker
+     ```
+
+4. **Run Jenkins Docker Container:**
+   - Pull the Jenkins image from Docker Hub and run it as a container:
+     ```bash
+     sudo docker run -d -p 8080:8080 -p 50000:50000 jenkins/jenkins
+     ```
+
+5. **Access Jenkins:**
+   - Open a web browser and navigate to `http://your-ec2-instance-public-ip:8080` to access Jenkins.
+   - Follow the on-screen instructions to complete the Jenkins setup.
+
+### Jenkins Installation with Docker:
+
+1. **Pull Jenkins Docker Image:**
+   - Pull the Jenkins image from Docker Hub:
+     ```bash
+     docker pull jenkins/jenkins
+     ```
+
+2. **Run Jenkins Docker Container:**
+   - Run Jenkins as a Docker container:
+     ```bash
+     docker run -d -p 8080:8080 -p 50000:50000 jenkins/jenkins
+     ```
+
+3. **Access Jenkins:**
+   - Open a web browser and navigate to `http://localhost:8080` to access Jenkins.
+   - Follow the on-screen instructions to complete the Jenkins setup.
+
+### Jenkins Installation on Kubernetes using Deployment and Service YAML files:
+
+1. **Create Deployment YAML:**
+   - Create a `jenkins-deployment.yaml` file with the following content:
+     ```yaml
+     apiVersion: apps/v1
+     kind: Deployment
+     metadata:
+       name: jenkins
+     spec:
+       replicas: 1
+       selector:
+         matchLabels:
+           app: jenkins
+       template:
+         metadata:
+           labels:
+             app: jenkins
+         spec:
+           containers:
+             - name: jenkins
+               image: jenkins/jenkins
+               ports:
+                 - containerPort: 8080
+                   name: http
+     ```
+
+2. **Create Service YAML:**
+   - Create a `jenkins-service.yaml` file with the following content:
+     ```yaml
+     apiVersion: v1
+     kind: Service
+     metadata:
+       name: jenkins
+     spec:
+       type: NodePort
+       selector:
+         app: jenkins
+       ports:
+         - protocol: TCP
+           port: 8080
+           targetPort: 8080
+           nodePort: 30000  # Choose a suitable nodePort
+     ```
+
+3. **Apply YAML Files:**
+   - Apply the YAML files to create the Jenkins deployment and service:
+     ```bash
+     kubectl apply -f jenkins-deployment.yaml
+     kubectl apply -f jenkins-service.yaml
+     ```
+
+4. **Access Jenkins:**
+   - Get the external IP of any node in your Kubernetes cluster:
+     ```bash
+     kubectl get nodes -o wide
+     ```
+   - Use the external IP along with the nodePort (e.g., `http://node-ip:30000`) to access Jenkins.
+   - Follow the on-screen instructions to complete the Jenkins setup.
+
+That's it! You've successfully installed Jenkins on EC2, with Docker, and on Kubernetes using deployment and service YAML files.

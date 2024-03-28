@@ -17,4 +17,6 @@ let's design one cicd project with following tools with all script files for app
 13. Slack for message alert
 
 
-👉 [Link to Outline File for steps](Outline.md)
+👉 [🔗 Link to Outline File for steps](Outline.md)
+
+👉 [🔗 Link for Docker-Applications-Run](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Run.sh)

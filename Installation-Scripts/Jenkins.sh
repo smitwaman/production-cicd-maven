@@ -1,4 +1,4 @@
-!#bin/bash
+#!bin/bash
 
 
 curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \

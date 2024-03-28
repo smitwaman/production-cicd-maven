@@ -6,6 +6,10 @@ Connect to your console, and enter these commands to Install Jenkins.
 
 ```
 sudo vi jenkins.sh # or use userdata 
+```
+
+
+```
 sudo apt-get update
 
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \

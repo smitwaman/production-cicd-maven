@@ -1,5 +1,5 @@
 
-Step 3 — 
+Step 3 
 
 1. Install necessery Plugins
 2. Add tokens in Jenkins required for API.

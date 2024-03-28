@@ -1,0 +1,83 @@
+## Step 4 — Configure Sonar Server in Manage Jenkins
+
+Grab the Public IP Address of your EC2 Instance, Sonarqube works on Port 9000, sp <Public IP>:9000. Goto your Sonarqube Server. Click on Administration → Security → Users → Click on Tokens and Update Token → Give it a name → and click on Generate Token
+
+
+
+Click on Update Token
+
+
+
+Copy this Token
+
+Goto Dashboard → Manage Jenkins → Credentials → Add Secret Text. It should look like this
+
+
+
+Now, go to Dashboard → Manage Jenkins → Configure System
+
+
+
+Click on Apply and Save
+
+The Configure System option is used in Jenkins to configure different server
+
+Global Tool Configuration is used to configure different tools that we install using Plugins
+
+We will install a sonar scanner in the tools.
+
+
+
+Add Quality Gate in Sonarqube
+
+click on Administration –> Configuration –> webhooks
+
+
+
+Click on Create
+
+
+
+Enter a URL like the below image
+
+
+
+Let go to our Pipeline and add the Sonar-qube Stage in our Pipeline Script
+
+```
+stage("Sonarqube Analysis "){
+            steps{
+                withSonarQubeEnv('sonar-server') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
+                    -Dsonar.java.binaries=. \
+                    -Dsonar.projectKey=Petclinic '''
+                }
+            }
+        }
+steps {
+     steps {
+         waitForQualityGate abortPipeline: false, credentialsId: 'Sonar-token' 
+     }
+}
+
+#alternative Sonarqube Analysis
+stage ('sonarqube Analysis'){
+            steps{
+                script{
+                    withSonarQubeEnv(credentialsId: 'Sonar-token') {
+                      sh 'mvn sonar:sonar'
+                    }
+                }
+            }
+        }
+
+```
+Click on Build now, you will see the stage view like this
+
+
+
+To see the report, you can go to Sonarqube Server and go to Projects.
+
+
+
+You can see the report has been generated and the status shows as passed. You can see that there are 15K lines. To see a detailed report, you can go to issues.

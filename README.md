@@ -25,6 +25,7 @@ let's design one cicd project with following tools with all script files for app
  
 
  👉 [💻🛠️ AppServer](Stage-1-appserver.md)
+
  Run following commands for installation of basic-tools on your server.
 
 

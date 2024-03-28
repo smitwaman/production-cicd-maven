@@ -21,5 +21,5 @@ let's design one cicd project with following tools with all script files for app
 
 👉 [🔗 Link for Applications-Run-Docker](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Run.sh)
 
-👉 [🔗 Link for Applications-Run-Docker](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Installation-with-helm.sh)
+👉 [🔗 Link for Applications-Installation-with-Helm](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Installation-with-helm.sh)
 

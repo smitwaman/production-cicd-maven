@@ -1,5 +1,5 @@
 
-Step 3 
+Step 4
 
 1. Install necessery Plugins
 2. Add tokens in Jenkins required for API.
@@ -14,7 +14,7 @@ Step 3
    - Argocd
    - SMTP for gmail
  
-3.1 — Install Plugin
+4.1 — Install Plugin
 
 Goto Manage Jenkins →Plugins → Available Plugins →
 
@@ -27,13 +27,13 @@ Install below plugins
 
 
 
-3B — Configure Java and Maven in Global Tool Configuration
+4B — Configure Java and Maven in Global Tool Configuration
 
 Goto Manage Jenkins → Tools → Install JDK and Maven3 → Click on Apply and Save
 
 
 
-3C — Create a Job
+4C — Create a Job
 
 Label it as Real-World CI-CD, click on Pipeline and OK.
 

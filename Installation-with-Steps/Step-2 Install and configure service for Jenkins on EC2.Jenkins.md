@@ -64,9 +64,9 @@ sudo apt-get install docker.io -y
 sudo usermod -aG docker $USER
 sudo chmod 777 /var/run/docker.sock 
 sudo docker ps
-After the docker installation, we create a sonarqube container (Remember added 9000 port in the security group)
 
 ```
+After the docker installation, we create a sonarqube container (Remember added 9000 port in the security group)
 
 ```
 

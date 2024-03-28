@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run Jenkins container
-docker run -d --name jenkins -p 8080:8080 jenkins/jenkins
+
 
 # Run SonarQube container
 docker run -d — name sonar -p 9000:9000 sonarqube:lts-community

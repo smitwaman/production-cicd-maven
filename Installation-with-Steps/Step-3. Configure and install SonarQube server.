@@ -1,6 +1,9 @@
 ## Step 4 — Configure Sonar Server in Manage Jenkins
 
 Sonar Setup
+Nginx setup
+Postgres setup
+
 
 User Data Script:
 
@@ -33,11 +36,15 @@ sudo -u postgres createuser sonar
 sudo -u postgres psql -c "ALTER USER sonar WITH ENCRYPTED PASSWORD 'admin123';"
 sudo -u postgres psql -c "CREATE DATABASE sonarqube OWNER sonar;"
 sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE sonarqube TO sonar;"
+```
 
+```
 # Install Java 17 and unzip
 sudo apt-get install openjdk-17-jdk -y
 sudo apt-get install unzip -y
+```
 
+```
 # Download and configure SonarQube
 sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.3.0.82913.zip
 sudo unzip sonarqube-10.3.0.82913.zip
@@ -82,7 +89,9 @@ EOT
 sudo systemctl enable sonar
 sudo systemctl start sonar
 sudo systemctl status sonar
+```
 
+```
 # Install and configure Nginx
 sudo apt-get install nginx -y
 sudo rm -rf /etc/nginx/sites-enabled/default
@@ -123,6 +132,7 @@ sudo ufw allow 22,80,9000,9001/tcp
 echo "System reboot in 30 sec"
 sleep 30
 reboot
+
 ```
 
 

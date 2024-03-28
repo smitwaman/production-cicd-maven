@@ -66,8 +66,9 @@ cd Installation-Scripts
 chmod +x Installation-with-helm.sh
 ./Installation-with-helm.sh
   ```
-
- 👉 [🔗 Lets Start configuration](Outline.md)
+- Once you have done with Appserver with tools and applications. If you are facing issues with installations we will install them one by one.
+  
+ 👉 [🔗 Lets Start](Outline.md)
 
 
 

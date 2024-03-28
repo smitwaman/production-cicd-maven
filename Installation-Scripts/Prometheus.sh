@@ -1,33 +1,40 @@
 #!/bin/bash
 
-# Download Prometheus
-wget https://github.com/prometheus/prometheus/releases/download/v2.30.1/prometheus-2.30.1.linux-amd64.tar.gz
+# Step 1: Download Prometheus
+echo "Downloading Prometheus..."
+wget https://github.com/prometheus/prometheus/releases/download/v2.33.0/prometheus-2.33.0.linux-amd64.tar.gz
 
-# Extract Prometheus
-tar -xzf prometheus-2.30.1.linux-amd64.tar.gz
+# Step 2: Extract the Tarball
+echo "Extracting Prometheus tarball..."
+tar -zxvf prometheus-2.33.0.linux-amd64.tar.gz
 
-# Move Prometheus files to /usr/local/bin directory
-sudo mv prometheus-2.30.1.linux-amd64/prometheus /usr/local/bin/
-sudo mv prometheus-2.30.1.linux-amd64/promtool /usr/local/bin/
+# Step 3: Move Prometheus to the desired installation directory (optional)
+echo "Moving Prometheus to installation directory..."
+sudo mv prometheus-2.33.0.linux-amd64 /opt/prometheus
 
-# Clean up downloaded files
-rm -rf prometheus-2.30.1.linux-amd64.tar.gz prometheus-2.30.1.linux-amd64
+# Step 4: Create a Prometheus user and group
+echo "Creating Prometheus user and group..."
+sudo useradd -rs /bin/false prometheus
 
-# Create Prometheus configuration directory
-sudo mkdir /etc/prometheus
+# Step 5: Set permissions
+echo "Setting permissions..."
+sudo chown -R prometheus:prometheus /opt/prometheus
 
-# Copy Prometheus configuration file
-sudo cp prometheus.yml /etc/prometheus/
+# Step 6: Create a Prometheus configuration file (prometheus.yml)
+echo "Creating Prometheus configuration file..."
+cat <<EOF | sudo tee /opt/prometheus/prometheus.yml
+global:
+  scrape_interval: 15s
 
-# Create Prometheus data directory
-sudo mkdir /var/lib/prometheus
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+EOF
 
-# Create Prometheus user and set permissions
-sudo useradd --no-create-home --shell /bin/false prometheus
-sudo chown -R prometheus:prometheus /etc/prometheus /var/lib/prometheus
-
-# Create Prometheus service file
-sudo tee /etc/systemd/system/prometheus.service <<EOF
+# Step 7: Create a systemd service for Prometheus
+echo "Creating Prometheus systemd service..."
+cat <<EOF | sudo tee /etc/systemd/system/prometheus.service
 [Unit]
 Description=Prometheus
 Wants=network-online.target
@@ -37,20 +44,20 @@ After=network-online.target
 User=prometheus
 Group=prometheus
 Type=simple
-ExecStart=/usr/local/bin/prometheus \
-  --config.file=/etc/prometheus/prometheus.yml \
-  --storage.tsdb.path=/var/lib/prometheus \
-  --web.console.templates=/etc/prometheus/consoles \
-  --web.console.libraries=/etc/prometheus/console_libraries
+ExecStart=/opt/prometheus/prometheus --config.file=/opt/prometheus/prometheus.yml
 
 [Install]
 WantedBy=multi-user.target
 EOF
 
-# Reload systemd and start Prometheus service
+# Step 8: Reload systemd and start Prometheus service
+echo "Reloading systemd and starting Prometheus service..."
 sudo systemctl daemon-reload
-sudo systemctl enable prometheus
 sudo systemctl start prometheus
+sudo systemctl enable prometheus
 
-# Check Prometheus service status
-sudo systemctl status prometheus
+# Step 9: Verify Prometheus installation
+echo "Verifying Prometheus installation..."
+curl -I http://localhost:9090
+
+echo "Prometheus installation completed successfully."

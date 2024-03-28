@@ -1,4 +1,4 @@
-let's outline the steps to set up a CI/CD pipeline using the mentioned tools:
+🚦 let's outline the steps to set up a CI/CD pipeline using the mentioned tools:
 
 
 ### 1. Setting up Git for SCM:

@@ -17,9 +17,20 @@ let's design one cicd project with following tools with all script files for app
 13. Slack for message alert
 
 
-👉 [🔗 Lets Start Step by Step](Outline.md)
+## 👉 [🔗 Lets Start Step by Step](Outline.md)
 
-👉 [🔗 Link for Applications-Run-Docker](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Run.sh)
+## 👉 [💻🛠️ AppServer](Stage-1-appserver.md)
+ 
+- Clone the repository to your local machine.
 
-👉 [🔗 Link for Applications-Installation-with-Helm](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Installation-with-helm.sh)
+  ```
+  git clone https://github.com/smitwaman/production-cicd-maven.git
+
+  ```
+
+## 👉 [🔗 Link for Applications-Run-Docker](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Run.sh)
+
+## 👉 [🔗 Link for Applications-Installation-with-Helm](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Installation-with-helm.sh)
+
+
 

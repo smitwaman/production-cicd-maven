@@ -16,7 +16,7 @@ let's design one cicd project with following tools with all script files for app
 12. monitoring docker swarm using Prometheus and Grafana
 13. Slack for message alert
 
-- Clone the repository to your local machine.
+- Before start of pipeline, clone the repository to your local machine.
 
   ```
   git clone https://github.com/smitwaman/production-cicd-maven.git

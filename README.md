@@ -22,7 +22,13 @@ let's design one cicd project with following tools with all script files for app
   git clone https://github.com/smitwaman/production-cicd-maven.git
 
   ```
+ - After cloning Repository, navigate to repository folder
+
+   📂 
  
+   ```
+   cd production-cicd-maven
+   ```
 
  👉 [💻🛠️ AppServer](Stage-1-appserver.md)
 

@@ -18,14 +18,17 @@ Before start with our configuration installation system tools for making tools r
   ```
 
 ### 2. Jenkins Integration:
-- [Install](Installation-with-Steps/Jenkins.md)
-- [Configuration]()
+- [Install Jenkins](Installation-with-Steps/Jenkins.md)
+- [Configure Jenkins]()
 - Set up a Jenkins job to pull the source code from the Git repository.
 
 - [Configure Jenkins Wehook] the job to trigger builds automatically or manually.
 
 ### 3. Monitoring Jenkins with Prometheus and Grafana:
-- Install Prometheus and Grafana.
+- Install Prometheus
+- Configure Prometheus 
+- Install Grafana.
+- Configure Grafana.
 - Configure Prometheus to scrape metrics from Jenkins.
 - Set up Grafana dashboards to visualize Jenkins metrics.
 
@@ -35,7 +38,8 @@ Before start with our configuration installation system tools for making tools r
 - Specify Maven goals in the Jenkins job configuration.
 
 ### 5. SonarQube for Quality Checks:
-- Install and configure SonarQube server.
+- Install SonarQube.
+- Configure SonarQube.
 - Integrate SonarQube with Jenkins using the SonarQube Scanner plugin.
 - Add a SonarQube analysis step to the Jenkins job to perform code quality checks.
 
@@ -44,7 +48,8 @@ Before start with our configuration installation system tools for making tools r
 - Set up email notifications for build success/failure using a Gmail SMTP server.
 
 ### 7. Nexus to Store Artifacts:
-- Install and configure Nexus repository manager.
+- Install Nexus repository manager.
+- Configure Nexus repository manager.
 - Configure Jenkins to deploy artifacts to Nexus after a successful build.
 
 ### 8. Trivy for OWASP:

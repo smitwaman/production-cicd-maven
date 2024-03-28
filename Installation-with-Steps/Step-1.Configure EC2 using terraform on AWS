@@ -1,0 +1,5 @@
+1. Open terminal
+2. Launch EC2 instance using terraform script on AWS.
+3. SSH to EC2 instance
+4. Run basic tools installation script on appserver.
+

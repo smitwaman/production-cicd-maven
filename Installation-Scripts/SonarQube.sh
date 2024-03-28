@@ -1,4 +1,4 @@
-!#bin/bash
+#!bin/bash
 sudo -i
 apt install unzip
 adduser sonarqube

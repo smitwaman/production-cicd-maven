@@ -39,12 +39,14 @@ sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE sonarqube TO sonar;"
 ```
 
 ```
+#!/bin/bash
 # Install Java 17 and unzip
 sudo apt-get install openjdk-17-jdk -y
 sudo apt-get install unzip -y
 ```
 
 ```
+#!/bin/bash
 # Download and configure SonarQube
 sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.3.0.82913.zip
 sudo unzip sonarqube-10.3.0.82913.zip

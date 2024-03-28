@@ -25,8 +25,10 @@ let's design one cicd project with following tools with all script files for app
  
 
  👉 [💻🛠️ AppServer](Stage-1-appserver.md)
-- Run following commands for installation of basic-tools on your server.
-  ```
+ Run following commands for installation of basic-tools on your server.
+
+
+   ```
 cd Installation-Scripts
 chmod +x Install.sh
 ./Install.sh
@@ -36,7 +38,7 @@ chmod +x Install.sh
 
  👉 [🔗 Link for Applications-Run-Docker](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Run.sh)
 
- - Run following commands to run applications on your server.
+ Run following commands to run applications on your server.
   ```
 cd Installation-Scripts
 chmod +x Run.sh
@@ -45,12 +47,13 @@ chmod +x Run.sh
 
  👉 [🔗 Link for Applications-Installation-with-Helm](https://github.com/smitwaman/production-cicd-maven/blob/main/Installation-Scripts/Installation-with-helm.sh)
 
- - Run following commands for installation of applications on your server.
+ Run following commands for installation of applications on your server.
   ```
 cd Installation-Scripts
 chmod +x Installation-with-helm.sh
 ./Installation-with-helm.sh
   ```
+
  👉 [🔗 Lets Start configuration](Outline.md)
 
 

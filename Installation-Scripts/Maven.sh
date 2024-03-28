@@ -1,17 +1,20 @@
 #!/bin/bash
 
-# Update package index
-sudo apt update
+# Step 1: Download Maven
+echo "Downloading Maven..."
+wget https://downloads.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz
 
-# Install Maven
-sudo apt install -y maven
+# Step 2: Extract the Tarball
+echo "Extracting Maven tarball..."
+tar -zxvf apache-maven-3.8.4-bin.tar.gz
 
-# Set MAVEN_HOME environment variable
-echo "export MAVEN_HOME=/usr/share/maven" >> ~/.bashrc
-echo "export PATH=\$PATH:\$MAVEN_HOME/bin" >> ~/.bashrc
+# Step 3: Set Environment Variables
+echo "Setting up environment variables..."
+export MAVEN_HOME=$(pwd)/apache-maven-3.8.4
+export PATH=$MAVEN_HOME/bin:$PATH
 
-# Reload ~/.bashrc
-source ~/.bashrc
-
-# Verify Maven installation
+# Step 4: Verify Installation
+echo "Verifying Maven installation..."
 mvn -version
+
+echo "Maven installation completed successfully."
